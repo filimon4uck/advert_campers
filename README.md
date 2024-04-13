@@ -39,7 +39,7 @@ name, email, booking date і comment. Поля name, email, booking date є
 за допомогою UI-сервісу https://mockapi.io/. Створiть ресурс adverts.
 Використайте конструктор ресурсу та опишiть об'єкт оголошення згiдно опису
 нижче.
-https://s3.eu-north-1.amazonaws.com/lms.goit.files/c519af4f-671f-4e9b-9ffa-a9930e953c511.png
+
 
 Advert
 
