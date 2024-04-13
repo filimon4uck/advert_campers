@@ -1,8 +1,8 @@
 {
-  "name": "react-homework-template",
+  "name": "advert_campers",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goitacademy.github.io/react-homework-template/",
+  "homepage": "https://filimon4uck.github.io/advert_campers/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
