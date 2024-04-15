@@ -1,5 +1,6 @@
 export const handleFulfilledFetchAdverts = (state, { payload }) => {
   state.adverts = payload;
+
   state.isLoading = false;
 };
 export const handleRejectedFetchAdverts = (state, { error }) => {
