@@ -2,7 +2,6 @@
   padding: 24px;
   display: flex;
   width: 888px;
-  height: 358px;
   column-gap: 24px;
   border-radius: 20px;
   border: solid 1px rgba(16, 24, 40, 0.2);
@@ -36,4 +35,7 @@
   flex-wrap: wrap;
   gap: 8px;
   list-style: none;
+}
+.show_more_btn {
+  background-color: var(--button);
 }

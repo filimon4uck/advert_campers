@@ -35,7 +35,7 @@ const CamperCard = ({
         <div>
           <div className={style.card_head}>
             <p>{name}</p>
-            <p>{price}</p>
+            <p>${price.toFixed(2)}</p>
           </div>
           <p>
             {rating}({reviews.length} Reviews)<span>{location}</span>
@@ -50,7 +50,7 @@ const CamperCard = ({
           {details.beds > 0 && <li>{details.beds} beds</li>}
           {details.airConditioner > 0 && <li>AC</li>}
         </ul>
-        <button className={style.showMoreBtn} type="button">
+        <button className={style.show_more_btn} type="button">
           Show more
         </button>
       </div>

@@ -4,6 +4,7 @@ import { fetchAdvertsThunk } from 'store/adverts/thunk';
 import { selectAdvers } from 'store/selectors/selectors';
 import sprite from '../../images/sprite.svg';
 import CamperCard from 'components/CamperCard/CamperCard';
+import BookForm from 'components/BookForm/BookForm';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,6 @@ const CatalogPage = () => {
   }, [dispatch]);
   const adverts = useSelector(selectAdvers);
 
-  return <div>{adverts?.length > 0 && <CamperCard camper={adverts[0]} />}</div>;
+  return <div>{<BookForm />}</div>;
 };
 export default CatalogPage;
