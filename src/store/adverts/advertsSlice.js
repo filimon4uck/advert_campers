@@ -10,8 +10,15 @@ const advertsSlice = createSlice({
   name: 'adverts',
   initialState: {
     adverts: [],
+    page: 1,
+    isLoadMore: true,
     isLoading: false,
     error: null,
+  },
+  reducers: {
+    loadMore(state, _) {
+      if (state.isLoadMore) state.page = state.page + 1;
+    },
   },
   extraReducers: builder => {
     builder
@@ -21,3 +28,4 @@ const advertsSlice = createSlice({
   },
 });
 export const advertsReducer = advertsSlice.reducer;
+export const { loadMore } = advertsSlice.actions;

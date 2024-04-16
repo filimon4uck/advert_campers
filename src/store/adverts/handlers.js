@@ -1,6 +1,6 @@
 export const handleFulfilledFetchAdverts = (state, { payload }) => {
-  state.adverts = payload;
-
+  state.adverts.push(...payload);
+  state.isLoadMore = state.page < Math.ceil(13 / 4);
   state.isLoading = false;
 };
 export const handleRejectedFetchAdverts = (state, { error }) => {

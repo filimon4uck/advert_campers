@@ -1,5 +1,9 @@
 import style from './CamperCard.module.css';
+import sprite from '../../images/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { openModal } from 'store/modal/modalSlice';
 const CamperCard = ({
+  showMoreToggle,
   camper: {
     _id,
     name,
@@ -22,6 +26,7 @@ const CamperCard = ({
     reviews,
   },
 }) => {
+  const dispatch = useDispatch();
   return (
     <div className={style.card_container}>
       <div className={style.camper_picture_container}>
@@ -38,7 +43,11 @@ const CamperCard = ({
             <p>${price.toFixed(2)}</p>
           </div>
           <p>
-            {rating}({reviews.length} Reviews)<span>{location}</span>
+            <svg width={16} height={16}>
+              <use href={sprite + '#star'}></use>
+            </svg>{' '}
+            {rating}({reviews.length} Reviews)
+            <span>{location}</span>
           </p>
           <p className={style.description}>{description}</p>
         </div>
@@ -50,7 +59,11 @@ const CamperCard = ({
           {details.beds > 0 && <li>{details.beds} beds</li>}
           {details.airConditioner > 0 && <li>AC</li>}
         </ul>
-        <button className={style.show_more_btn} type="button">
+        <button
+          className={style.show_more_btn}
+          onClick={() => dispatch(openModal(_id))}
+          type="button"
+        >
           Show more
         </button>
       </div>
