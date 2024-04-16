@@ -1,5 +1,6 @@
 export const handleFulfilledFetchAdverts = (state, { payload }) => {
   state.adverts.push(...payload);
+  state.prevPage = state.page;
   state.isLoadMore = state.page < Math.ceil(13 / 4);
   state.isLoading = false;
 };

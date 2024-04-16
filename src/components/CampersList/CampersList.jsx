@@ -1,10 +1,7 @@
 import CamperCard from 'components/CamperCard/CamperCard';
-import { useSelector } from 'react-redux';
-import { selectAdverts } from 'store/selectors/selectors';
 import style from './CampersList.module.css';
 
-const CampersList = () => {
-  const adverts = useSelector(selectAdverts);
+const CampersList = ({ adverts }) => {
   return (
     <>
       {adverts?.length > 0 && (

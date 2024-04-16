@@ -2,9 +2,9 @@ import style from './CamperCard.module.css';
 import sprite from '../../images/sprite.svg';
 import { useDispatch } from 'react-redux';
 import { openModal } from 'store/modal/modalSlice';
-const CamperCard = ({
-  showMoreToggle,
-  camper: {
+import { toggleFavorites } from 'store/favorites/favoritesSlice';
+const CamperCard = ({ camper }) => {
+  const {
     _id,
     name,
     price,
@@ -24,8 +24,7 @@ const CamperCard = ({
     details,
     gallery,
     reviews,
-  },
-}) => {
+  } = camper;
   const dispatch = useDispatch();
   return (
     <div className={style.card_container}>
@@ -65,6 +64,9 @@ const CamperCard = ({
           type="button"
         >
           Show more
+        </button>
+        <button onClick={() => dispatch(toggleFavorites(camper))} type="button">
+          Ad to Favorites
         </button>
       </div>
     </div>
