@@ -1,35 +1,11 @@
 import FeaturesList from 'components/Shared/FeaturesList/FeaturesList';
 import style from './Features.module.css';
-import BookForm from 'components/BookForm/BookForm';
 
 const Features = ({ camper }) => {
   const {
-    _id,
-    name,
-    price,
-    rating,
-    reviews,
-    location,
     transmission,
-    description,
-    gallery,
     adults,
-    details: {
-      airConditioner,
-      bathroom,
-      kitchen,
-      beds,
-      TV,
-      CD,
-      radio,
-      shower,
-      toilet,
-      freezer,
-      hob,
-      microwave,
-      gas,
-      water,
-    },
+    details: { airConditioner, kitchen, beds, CD, radio, hob },
     engine,
     consumption,
     tank,

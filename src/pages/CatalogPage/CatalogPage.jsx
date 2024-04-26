@@ -24,11 +24,10 @@ const CatalogPage = () => {
   const isLoadMore = useSelector(selectIsLoadMore);
   const adverts = useSelector(selectAdverts);
   if (isModalOpen) {
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('disable-scrolling');
   } else {
-    document.body.style.overflow = 'auto';
+    document.body.classList.remove('disable-scrolling');
   }
-
   const dispatch = useDispatch();
   useEffect(() => {
     if (page !== prevPage) {

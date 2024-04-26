@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAdverts, selectCardId } from 'store/selectors/selectors';
-import sprite from '../../images/sprite.svg';
 import { closeModal } from 'store/modal/modalSlice';
+import sprite from '../../images/sprite.svg';
+import { selectAdverts, selectCardId } from 'store/selectors/selectors';
 import Features from 'components/Features/Features';
 import Reviews from 'components/Shared/Reviews/Reviews';
 import style from './Modal.module.css';
@@ -17,13 +17,15 @@ const Modal = () => {
   const adverts = useSelector(selectAdverts);
   const camper = adverts?.find(({ _id }) => cardId === _id);
   const { name, rating, reviews, location, price, gallery, description } =
-    camper;
+    camper || {};
+
   useEffect(() => {
     const handleKeyPress = evt => {
       if (evt.code === 'Escape') {
         dispatch(closeModal());
       }
     };
+
     document.addEventListener('keydown', handleKeyPress);
 
     return () => {
@@ -36,6 +38,8 @@ const Modal = () => {
       dispatch(closeModal());
     }
   };
+
+  if (!camper) return null;
 
   return (
     <div className={style.overlay} onClick={handleClickOverlay}>
@@ -55,12 +59,12 @@ const Modal = () => {
 
         <CamperStats rating={rating} reviews={reviews} location={location} />
         <p className={`${style.price} ${style.name}`}>
-          &euro;{price.toFixed(2)}
+          &euro;{price?.toFixed(2)}
         </p>
         <div className={style.images_container}>
-          {gallery.map(image => (
-            <div className={style.image_container} key={gallery.indexOf(image)}>
-              <img src={image} alt="camprer_image" />
+          {gallery.map((image, index) => (
+            <div className={style.image_container} key={index}>
+              <img src={image} alt={`camper_image_${index}`} />
             </div>
           ))}
         </div>

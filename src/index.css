@@ -18,3 +18,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.disable-scrolling {
+  height: 100%;
+  overflow: hidden;
+}

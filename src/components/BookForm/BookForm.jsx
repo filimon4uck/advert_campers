@@ -1,5 +1,4 @@
 import style from './BookForm.module.css';
-import sprite from '../../images/sprite.svg';
 
 const BookForm = () => {
   return (
@@ -35,8 +34,6 @@ const BookForm = () => {
           id="date"
           defaultValue={'Booking date'}
           placeholder="Booking date"
-          // onClick={e => (e.target.type = 'date')}
-          // onBlur={e => (e.target.type = 'text')}
         />
 
         <textarea
