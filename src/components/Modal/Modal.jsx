@@ -6,7 +6,6 @@ import { closeModal } from 'store/modal/modalSlice';
 import Features from 'components/Features/Features';
 import Reviews from 'components/Shared/Reviews/Reviews';
 import style from './Modal.module.css';
-import Raiting from 'components/Rating/Raiting';
 import CamperStats from 'components/Shared/CamperStats/CamperStats';
 import BookForm from 'components/BookForm/BookForm';
 
@@ -30,7 +29,7 @@ const Modal = () => {
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
     };
-  }, []);
+  }, [dispatch]);
 
   const handleClickOverlay = evt => {
     if (evt.currentTarget === evt.target) {
