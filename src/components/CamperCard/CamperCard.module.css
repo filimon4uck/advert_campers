@@ -7,35 +7,64 @@
   border: solid 1px rgba(16, 24, 40, 0.2);
 }
 .camper_picture_container {
-  width: 290px;
-  height: 310px;
   border-radius: 10px;
   overflow: hidden;
 }
-.camper_picture {
-  width: 100%;
+.camper_picture_container > img {
   height: 100%;
   object-fit: cover;
 }
+.details_container {
+  width: 526px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+
 .card_head {
   display: flex;
   justify-content: space-between;
-  width: 526px;
+
   font-weight: 600;
   font-size: 24px;
 }
+.price_favor_container {
+  display: flex;
+  column-gap: 10px;
+}
+
 .description {
-  width: 526px;
-  white-space: nowrap;
+  font-size: 16px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.details {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  list-style: none;
-}
+
 .show_more_btn {
+  color: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #fff;
   background-color: var(--button);
+  border-color: transparent;
+  width: 166px;
+  height: 56px;
+  border-radius: 200px;
+}
+.favorites_bth {
+  background-color: transparent;
+
+  border: none;
+  fill: transparent;
+  stroke: var(--main);
+  stroke-width: 2.3px;
+}
+
+.in_favorites {
+  background-color: transparent;
+  border: none;
+  stroke: red;
+  fill: red;
 }

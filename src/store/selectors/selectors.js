@@ -7,3 +7,4 @@ export const selectIsModalOpen = state => state.modal.isModalOpen;
 export const selectCardId = state => state.modal.id;
 export const selectIsLoadMore = state => state.adverts.isLoadMore;
 export const selectFavorites = state => state.favorites.favorites;
+export const selectFilter = state => state.filter;

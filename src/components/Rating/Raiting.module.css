@@ -1,0 +1,10 @@
+.raiting_list {
+  display: flex;
+  column-gap: 10px;
+}
+.raiting_star > svg {
+  fill: var(--block_features);
+}
+.raiting_star_filled > svg {
+  fill: var(--raiting);
+}

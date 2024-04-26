@@ -1,9 +1,19 @@
 import style from './CamperCard.module.css';
 import sprite from '../../images/sprite.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from 'store/modal/modalSlice';
 import { toggleFavorites } from 'store/favorites/favoritesSlice';
+import { selectFavorites } from 'store/selectors/selectors';
+import { useEffect, useState } from 'react';
+import FeaturesList from 'components/Shared/FeaturesList/FeaturesList';
+import CamperStats from 'components/Shared/CamperStats/CamperStats';
+
 const CamperCard = ({ camper }) => {
+  const favorites = useSelector(selectFavorites);
+  const checkFavorites = id => favorites.find(({ _id }) => _id === id);
+  const [isInFavorites, setIsInFavorites] = useState(
+    checkFavorites(camper._id)
+  );
   const {
     _id,
     name,
@@ -11,62 +21,64 @@ const CamperCard = ({ camper }) => {
     rating,
     location,
     adults,
-    children,
     engine,
     transmission,
-    form,
-    length,
-    width,
-    height,
-    tank,
-    consumption,
     description,
-    details,
+    details: { kitchen, beds, airConditioner },
     gallery,
     reviews,
   } = camper;
+  const VALUES_WITH_COUNT = ['adults', 'beds'];
+  const VALUES = ['transmission', 'engine'];
+  const features = {
+    adults,
+    transmission,
+    engine,
+    kitchen,
+    beds,
+    AC: airConditioner,
+  };
+  useEffect(() => {
+    setIsInFavorites(favorites.find(({ _id }) => _id === camper._id));
+  }, [favorites, camper]);
   const dispatch = useDispatch();
   return (
     <div className={style.card_container}>
       <div className={style.camper_picture_container}>
-        <img
-          className={style.camper_picture}
-          src={gallery[0]}
-          alt="picture_camper"
-        />
+        <img src={gallery[0]} alt="picture_camper" />
       </div>
-      <div>
-        <div>
-          <div className={style.card_head}>
-            <p>{name}</p>
-            <p>${price.toFixed(2)}</p>
+
+      <div className={style.details_container}>
+        <div className={style.card_head}>
+          <p>{name}</p>
+          <div className={style.price_favor_container}>
+            <p>&euro;{price.toFixed(2)}</p>
+            <button
+              className={`${
+                isInFavorites ? style.in_favorites : style.favorites_bth
+              }`}
+              type="button"
+              onClick={() => dispatch(toggleFavorites(camper))}
+            >
+              <svg width={24} height={24}>
+                <use href={sprite + '#icon-heart'}></use>
+              </svg>
+            </button>
           </div>
-          <p>
-            <svg width={16} height={16}>
-              <use href={sprite + '#star'}></use>
-            </svg>{' '}
-            {rating}({reviews.length} Reviews)
-            <span>{location}</span>
-          </p>
-          <p className={style.description}>{description}</p>
         </div>
-        <ul className={style.details}>
-          <li>{adults} adults</li>
-          <li>{transmission}</li>
-          <li>{engine}</li>
-          {details.kitchen > 0 && <li>Kitchen</li>}
-          {details.beds > 0 && <li>{details.beds} beds</li>}
-          {details.airConditioner > 0 && <li>AC</li>}
-        </ul>
+        <CamperStats rating={rating} reviews={reviews} location={location} />
+        <p className={style.description}>{description}</p>
+        <FeaturesList
+          features={features}
+          valuesWithCount={VALUES_WITH_COUNT}
+          values={VALUES}
+        />
         <button
           className={style.show_more_btn}
           onClick={() => dispatch(openModal(_id))}
           type="button"
         >
           Show more
-        </button>
-        <button onClick={() => dispatch(toggleFavorites(camper))} type="button">
-          Ad to Favorites
         </button>
       </div>
     </div>

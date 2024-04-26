@@ -1,0 +1,12 @@
+.favorites_container {
+  padding: 30px 64px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.favorites_text {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--button);
+}

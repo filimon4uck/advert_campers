@@ -1,0 +1,122 @@
+.filters {
+  width: 360px;
+}
+.location_wrapper {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: rgba(16, 24, 40, 0.6);
+  display: flex;
+  row-gap: 8px;
+  max-width: 100%;
+  flex-direction: column;
+}
+.select_icon_wrapper {
+  width: 100%;
+  padding: 18px 18px;
+  display: flex;
+  column-gap: 8px;
+  background-color: var(--inputs);
+  border-radius: 10px;
+  margin-bottom: 32px;
+}
+.select {
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--main);
+}
+.select:focus {
+  outline: none;
+}
+.title_filters {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: rgba(16, 24, 40, 0.6);
+  margin-bottom: 14px;
+}
+.filters_header {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  margin-bottom: 24px;
+}
+.filter_check_list {
+  border-top: 1px solid rgba(16, 24, 40, 0.1);
+  padding-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+.checkbox_filter {
+  width: 112px;
+  height: 95px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  cursor: pointer;
+}
+.checkbox_filter.checked {
+  border-color: #e44848;
+}
+
+.radio_filter_label {
+}
+
+.name_icon_wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  align-items: center;
+}
+.radio_filter_label span {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  max-width: 80px;
+}
+.types_list_item {
+  flex-grow: 1;
+}
+.types_list {
+  padding-top: 24px;
+  border-top: 1px solid rgba(16, 24, 40, 0.1);
+  display: flex;
+  column-gap: 10px;
+  margin-bottom: 70px;
+}
+.types_item {
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+  display: grid;
+  place-content: center;
+  height: 95px;
+}
+.types_item.checked {
+  border-color: #e44848;
+}
+.radio_filter_input {
+  display: none;
+}
+.filter_search_button {
+  width: 173px;
+  height: 56px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #fff;
+  background-color: var(--button);
+  border: none;
+  border-radius: 200px;
+}

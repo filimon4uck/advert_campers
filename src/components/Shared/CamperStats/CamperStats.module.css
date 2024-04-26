@@ -1,0 +1,23 @@
+.stats_container {
+  display: flex;
+  column-gap: 16px;
+  font-weight: 400;
+  font-size: 16px;
+
+  color: var(--main);
+}
+.reviews_container {
+  display: flex;
+  align-items: baseline;
+  column-gap: 4px;
+  line-height: 150%;
+}
+.location_container {
+  align-items: baseline;
+  display: flex;
+  column-gap: 4px;
+  align-items: center;
+}
+.reviews_icon {
+  fill: var(--raiting);
+}

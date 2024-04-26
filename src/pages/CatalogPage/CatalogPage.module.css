@@ -1,5 +1,28 @@
-.catalog_container {
+.catalog_page_container {
+  padding: 20px 64px 20px 64px;
   display: flex;
   justify-content: center;
-  padding: 40px 0;
+
+  column-gap: 56px;
+}
+
+.catalog_container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  align-items: center;
+  justify-content: center;
+}
+.load_more_btn {
+  width: 145px;
+  height: 56px;
+  border-radius: 200px;
+  border-color: rgba(71, 84, 103, 0.2);
+  background-color: transparent;
+  font-weight: 500;
+  line-height: 150%;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: var(--main);
 }

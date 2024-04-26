@@ -1,8 +1,13 @@
+import { NavLink } from 'react-router-dom';
+import style from './HomePage.module.css';
 const HomePage = () => {
   return (
-    <div>
-      this is home page this is home page this is home page this is home page
-      this is home page this is home pagethis is home page this is home page
+    <div className={style.home_container}>
+      <h1 className={style.title}>Rent a motorhome & start your adventure</h1>
+
+      <NavLink className={style.call_to_action} to={'./catalog'}>
+        Book now
+      </NavLink>
     </div>
   );
 };

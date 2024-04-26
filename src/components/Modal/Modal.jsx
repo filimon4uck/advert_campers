@@ -1,17 +1,24 @@
-import BookForm from 'components/BookForm/BookForm';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAdverts, selectCardId } from 'store/selectors/selectors';
 import sprite from '../../images/sprite.svg';
 import { closeModal } from 'store/modal/modalSlice';
+import Features from 'components/Features/Features';
+import Reviews from 'components/Shared/Reviews/Reviews';
+import style from './Modal.module.css';
+import Raiting from 'components/Rating/Raiting';
+import CamperStats from 'components/Shared/CamperStats/CamperStats';
+import BookForm from 'components/BookForm/BookForm';
 
 const Modal = () => {
+  const [isFeaturesActive, setFeaturesActive] = useState(true);
+  const [isReviewsActive, setReviewsActive] = useState(false);
   const dispatch = useDispatch();
   const cardId = useSelector(selectCardId);
   const adverts = useSelector(selectAdverts);
+  const camper = adverts?.find(({ _id }) => cardId === _id);
   const { name, rating, reviews, location, price, gallery, description } =
-    adverts?.find(({ _id }) => cardId === _id);
-
+    camper;
   useEffect(() => {
     const handleKeyPress = evt => {
       if (evt.code === 'Escape') {
@@ -32,38 +39,75 @@ const Modal = () => {
   };
 
   return (
-    <div onClick={handleClickOverlay}>
-      <div>
-        <div>
-          <h1>{name}</h1>
-          <button type="button" onClick={() => dispatch(closeModal())}>
+    <div className={style.overlay} onClick={handleClickOverlay}>
+      <div className={style.modal}>
+        <div className={style.modal_head}>
+          <h2 className={style.name}>{name}</h2>
+          <button
+            className={style.close_button}
+            type="button"
+            onClick={() => dispatch(closeModal())}
+          >
             <svg width={16} height={16}>
-              <use href={sprite + '#close_icon'}></use>
+              <use href={sprite + '#icon-close'}></use>
             </svg>
           </button>
         </div>
-        <p>
-          {rating}({reviews.length} reviews)<span>{location}</span>
+
+        <CamperStats rating={rating} reviews={reviews} location={location} />
+        <p className={`${style.price} ${style.name}`}>
+          &euro;{price.toFixed(2)}
         </p>
-        <p>{price}</p>
-        <div>
+        <div className={style.images_container}>
           {gallery.map(image => (
-            <div key={gallery.indexOf(image)}>
+            <div className={style.image_container} key={gallery.indexOf(image)}>
               <img src={image} alt="camprer_image" />
             </div>
           ))}
         </div>
-        <p>{description}</p>
-        <ul>
-          <li>
-            <button type="button">Features</button>
-          </li>
-          <li>
-            <button type="button">Reviews</button>
-          </li>
-        </ul>
-        <div>
-          <BookForm />
+        <p className={style.description}>{description}</p>
+        <div className={style.features_reviews_container}>
+          <ul className={style.buttons_list}>
+            <li>
+              <button
+                className={`${style.modal_button} ${
+                  isFeaturesActive ? style.active : ''
+                }`}
+                type="button"
+                onClick={() => {
+                  setFeaturesActive(true);
+                  setReviewsActive(false);
+                }}
+              >
+                Features
+              </button>
+            </li>
+            <li>
+              <button
+                className={`${style.modal_button} ${
+                  isReviewsActive ? style.active : ''
+                }`}
+                onClick={() => {
+                  setFeaturesActive(false);
+                  setReviewsActive(true);
+                }}
+                type="button"
+              >
+                Reviews
+              </button>
+            </li>
+          </ul>
+
+          {isFeaturesActive && (
+            <div className={style.features_reviews_wrapper}>
+              <Features camper={camper} /> <BookForm />
+            </div>
+          )}
+          {isReviewsActive && (
+            <div className={style.features_reviews_wrapper}>
+              <Reviews reviews={reviews} /> <BookForm />
+            </div>
+          )}
         </div>
       </div>
     </div>

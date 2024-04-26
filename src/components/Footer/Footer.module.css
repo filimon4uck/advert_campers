@@ -1,0 +1,17 @@
+.footer_container {
+  padding: 20px 64px;
+  justify-content: center;
+  display: flex;
+  column-gap: 100px;
+  height: 80px;
+  background-color: rgb(39, 39, 39);
+}
+.navigation_link {
+  color: wheat;
+}
+.navigation_link:hover {
+  color: var(--button);
+}
+.contacts {
+  color: wheat;
+}

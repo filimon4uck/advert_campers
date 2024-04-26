@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { closeModal } from 'store/modal/modalSlice';
 import { selectFavorites, selectIsModalOpen } from 'store/selectors/selectors';
-
+import style from './FavoritesPage.module.css';
 const FavoritesPage = () => {
   const isModalOpen = useSelector(selectIsModalOpen);
   const favorites = useSelector(selectFavorites);
@@ -15,8 +15,12 @@ const FavoritesPage = () => {
     dispatch(closeModal());
   }, [location.pathname, dispatch]);
   return (
-    <div>
-      {favorites?.length > 0 && <CampersList adverts={favorites} />}
+    <div className={style.favorites_container}>
+      {favorites?.length > 0 ? (
+        <CampersList adverts={favorites} />
+      ) : (
+        <p className={style.favorites_text}>Your favorites list is empty</p>
+      )}
       {isModalOpen && <Modal />}
     </div>
   );

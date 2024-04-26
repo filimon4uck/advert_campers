@@ -1,0 +1,36 @@
+.features {
+  display: flex;
+  flex-direction: column;
+  row-gap: 44px;
+}
+.vehicle_datails_container {
+  width: 430px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+.features_list_container {
+  max-width: 430px;
+}
+.vehicle_datails_container h2 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+}
+.vehicle_details_list {
+  padding-top: 24px;
+  border-top: 1px solid rgba(16, 24, 40, 0.1);
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+}
+.vehicle_detail {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 133%;
+  text-align: center;
+  color: var(--main);
+  display: flex;
+  justify-content: space-between;
+}
