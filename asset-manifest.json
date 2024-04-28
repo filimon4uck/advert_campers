@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/advert_campers/static/css/main.0ceacc05.css",
-    "main.js": "/advert_campers/static/js/main.b354b20d.js",
+    "main.js": "/advert_campers/static/js/main.c767a51d.js",
     "static/media/z29725866IER,Elektryczny-Citroen-e-C4-X 1.jpg": "/advert_campers/static/media/z29725866IER,Elektryczny-Citroen-e-C4-X 1.ca89113d1c66b5dee6ae.jpg",
     "static/media/sprite.svg": "/advert_campers/static/media/sprite.617323827587af126ce6a0b9feaa1296.svg",
     "index.html": "/advert_campers/index.html",
     "main.0ceacc05.css.map": "/advert_campers/static/css/main.0ceacc05.css.map",
-    "main.b354b20d.js.map": "/advert_campers/static/js/main.b354b20d.js.map"
+    "main.c767a51d.js.map": "/advert_campers/static/js/main.c767a51d.js.map"
   },
   "entrypoints": [
     "static/css/main.0ceacc05.css",
-    "static/js/main.b354b20d.js"
+    "static/js/main.c767a51d.js"
   ]
 }
